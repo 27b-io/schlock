@@ -22,7 +22,7 @@ jobs:
     - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
     - name: Set up uv
-      uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+      uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
       with:
         python-version: ${{ matrix.python-version }}
 
@@ -66,7 +66,7 @@ jobs:
         fetch-depth: 0
 
     - name: Set up uv
-      uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+      uses: astral-sh/setup-uv@1db35dd8eee11c5894872e0b383ae6c406cf738d # v10.4.0
 
     - name: pip-audit
       run: uv export --no-hashes | uvx pip-audit -r /dev/stdin --ignore-vuln CVE-2026-4539  # pygments 2.19.2, no fix available (transitive dev dep via pytest)
@@ -78,7 +78,7 @@ jobs:
     # bumps the SHA + version comment automatically.
     - name: osv-scanner
       continue-on-error: true
-      uses: google/osv-scanner-action/osv-scanner-action@b1d267aea5211fa648d9d442fa64b90dbdcbdd36 # v2.7.0
+      uses: google/osv-scanner-action/osv-scanner-action@32d3cd482bdadfb38b186c0ad1b031902d55d932 # v2.7.1
       with:
         scan-args: |-
           --lockfile=uv.lock
